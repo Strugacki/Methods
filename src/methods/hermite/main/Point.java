@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Point {
 
 	private double x;
+	private int a;
 	private ArrayList<Double> y = new ArrayList<Double>();
 	
 	
@@ -20,9 +21,10 @@ public class Point {
 	 * Constructor with one argument
 	 * @param x
 	 */
-	public Point(double x){
+	public Point(double x, int a){
 		super();
 		this.x=x;
+		this.a=a;
 	}	
 	
 	/**
@@ -74,6 +76,26 @@ public class Point {
 	 */
 	public int getSize(){
 		return this.y.size();
+	}
+
+
+	/**
+	 * @return the a
+	 */
+	public int getA() {
+		return a;
+	}
+
+
+	/**
+	 * @param a the a to set
+	 */
+	public void setA(int a) {
+		this.a = a;
+	}
+	
+	public String toString(){
+		return "wartoœæ wêz³a:"+this.x+" krotnoœæ:"+this.a+" ";
 	}
 	
 }
