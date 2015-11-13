@@ -51,6 +51,11 @@ public class Hermite {
 		this.k = k;
 	}
 	
+	
+	/**
+	 * Reads input points
+	 * @return
+	 */
 	public Hermite readPoints(){
 		
 		Scanner in = new Scanner(System.in);
@@ -86,6 +91,19 @@ public class Hermite {
 				break;
 			}
 		}
+		return this;
+	}
+	
+	/**
+	 * Fills list of values with partial derivatives
+	 * @return
+	 */
+	public Hermite fillDirevativesValues(){
+		for(int i=0;i<this.getPointsNumber();i++){
+			Derivative diver = new Derivative(this.getPoint(i));
+			this.getPoint(i).setY(diver.makeDerivatives());
+		}
+		
 		return this;
 	}
 	

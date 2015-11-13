@@ -6,7 +6,7 @@ public class Point {
 
 	private double x;
 	private int a;
-	private ArrayList<Double> y = new ArrayList<Double>();
+	private ArrayList<Double> y;
 	
 	
 	/**

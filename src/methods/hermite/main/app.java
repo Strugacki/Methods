@@ -1,5 +1,6 @@
 package methods.hermite.main;
 
+
 public class app {
 
 	public static void main(String[] args) {
@@ -9,7 +10,7 @@ public class app {
 		for(int i=0;i<hermite.getPointsNumber();i++){
 			System.out.println(hermite.getPoint(i));
 		}
-
+		hermite.fillDirevativesValues();
 	}
 
 }
