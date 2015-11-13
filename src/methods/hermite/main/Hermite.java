@@ -51,6 +51,13 @@ public class Hermite {
 		this.k = k;
 	}
 	
+	// funkcja poszukiwania j-tej pochodnej w punkcie x
+    public double getYfromX(double x, int j) {
+        for (int i=0;i<this.points.size();i++)
+            if (this.points.get(i).getX() == x)
+                return this.points.get(i).getNthY(j);
+        return 0;
+    }
 	
 	/**
 	 * Reads input points
