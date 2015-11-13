@@ -94,8 +94,9 @@ public class Point {
 		this.a = a;
 	}
 	
+	@Override
 	public String toString(){
-		return "wartoœæ wêz³a:"+this.x+" krotnoœæ:"+this.a+" ";
+		return "wartoœæ wêz³a:"+this.getX()+" krotnoœæ:"+this.getA()+" ";
 	}
 	
 }
