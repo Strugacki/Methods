@@ -5,13 +5,29 @@ import java.util.ArrayList;
 import org.apache.commons.math3.analysis.differentiation.DerivativeStructure;
 
 public class Interpolation {
+	private String polymonial;
+	
 	
 	public Interpolation(){
 		
 	}
+	
+	/**
+	 * @return the polymonial
+	 */
+	public String getPolymonial() {
+		return polymonial;
+	}
+
+	/**
+	 * @param polymonial the polymonial to set
+	 */
+	public void setPolymonial(String polymonial) {
+		this.polymonial = polymonial;
+	}
 	 
 	// obliczanie ilorazow roznicowych
-	    private static double[] quotients(Hermite hermit,  double[] nodes) throws Exception {
+	    private double[] quotients(Hermite hermit,  double[] nodes) throws Exception {
 	    	int nodesNumber = 0; // ilosc punktow
 	        double[][] quotients = new double[nodesNumber][]; // tworzenie kolumn ilorazów jak w tej tabelce ze skryptu
 	        for (int i = 0; i < hermit.getPointsNumber();i++) {
@@ -43,7 +59,7 @@ public class Interpolation {
 	    }
 	     
 	    // interpolacja Hermite'a
-	    private static void interpolacja(Hermite hermit){
+	    private void interpolacja(Hermite hermit){
 	    	double[] nodes = new double[hermit.getPointsNumber()]; //tutaj beda te nasze wezly t0 t1 itp
 	        int k = 0;  // wypelnianie tablicy
 	        for (int i = 0; i < hermit.getPointsNumber(); i++) {
