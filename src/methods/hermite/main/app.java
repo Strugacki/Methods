@@ -11,6 +11,7 @@ public class app {
 			System.out.println(hermite.getPoint(i));
 		}
 		hermite.fillDirevativesValues();
+		Interpolation interpolation = new Interpolation(hermite);
 	}
 
 }

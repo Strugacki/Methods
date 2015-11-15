@@ -22,11 +22,11 @@ public class Derivative {
 		this.x=point.getX();
 		this.a=point.getA();
 		polymonStruct = new DerivativeStructure(1,a, 0, x);
-		x3 = polymonStruct.pow(3);
+		x3 = polymonStruct.pow(4);
 		x2 = polymonStruct.pow(2);
 		x1 = polymonStruct.pow(1);
 		free = polymonStruct.pow(0);
-		//function is 5x^3 + 3x^3 + 2x + 1
+		//function is 5x^4 + 3x^2 + 2x + 1
 		polymon = new DerivativeStructure(5.0, x3, 3.0, x2, 2.0, x1, 1.0,free);
 	}
 
@@ -38,7 +38,7 @@ public class Derivative {
 		ArrayList<Double> listY = new ArrayList<Double>();
 		for(int i = 1; i<=this.a;i++){
 			double value=this.polymon.getPartialDerivative(i);
-			System.out.println("Partial derivative number:"+this.a+" for function in point: "+this.x+" is ="+value);
+			System.out.println("Wartoœæ pochodnej rzêdu:"+i+" dla funkcji w punkcie: "+this.x+" wynosi ="+value);
 			listY.add(value);
 		}
 		

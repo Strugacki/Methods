@@ -2,6 +2,8 @@ package methods.hermite.main;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import org.apache.commons.math3.analysis.interpolation.HermiteInterpolator;
+
 
 public class Hermite {
 
@@ -76,7 +78,7 @@ public class Hermite {
 			this.k=in.nextInt();
 		}
 		System.out.println();
-		System.out.println("Podaj kolejno wêz³y oraz ich krotnoœci. W celu zakoñczenia wpisz: licz \n");
+		System.out.println("Podaj kolejno wêz³y znajduj¹ce siê w przedziale oraz ich krotnoœci. W celu zakoñczenia wpisz: licz \n");
 		System.out.println("Podaj wartoœæ x wêz³a: ");
 		while(in.hasNextDouble()){
 					double x = in.nextDouble();
@@ -106,6 +108,7 @@ public class Hermite {
 	 * @return
 	 */
 	public Hermite fillDirevativesValues(){
+		HermiteInterpolator polymonial = new HermiteInterpolator();
 		for(int i=0;i<this.getPointsNumber();i++){
 			Derivative diver = new Derivative(this.getPoint(i));
 			this.getPoint(i).setY(diver.makeDerivatives());
