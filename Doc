@@ -1,0 +1,23 @@
+Wejście: 
+
+Początek przedziału,
+Koniec pedziału,
+Kolejne węzły znajdujące się w podanym przedziale oraz ich krotności
+
+Wyjście:
+
+Wielomian
+
+Klasy: Derivative, Hermite, Interpolation
+
+Derivative:
+
+Klasa zajmująca się wyliczaniem wartości pochodnych w punkcie.
+
+Hermite:
+
+Klasa wczytująca dane i porządkująca je.
+
+Interpolation:
+
+Klasa zajmująca się obliczaniem ilorazów różnicowych oraz interpolowaniem metodą Hermite'a.
