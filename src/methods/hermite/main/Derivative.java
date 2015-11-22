@@ -8,6 +8,7 @@ public class Derivative {
 	private double x;
 	private int a;
 	private DerivativeStructure polymonStruct;
+	private DerivativeStructure x8;
 	private DerivativeStructure x3;
 	private DerivativeStructure x2;
 	private DerivativeStructure x1;
@@ -27,7 +28,10 @@ public class Derivative {
 		x1 = polymonStruct.pow(1);
 		free = polymonStruct.pow(0);
 		//function is 5x^4 + 3x^2 + 2x + 1
-		polymon = new DerivativeStructure(5.0, x3, 3.0, x2, 2.0, x1, 1.0,free);
+		//polymon = new DerivativeStructure(5.0, x3, 3.0, x2, 2.0, x1, 1.0,free);
+		
+		x8 = polymonStruct.pow(8);
+		polymon = new DerivativeStructure(1.0, x8, 1.0,free);
 	}
 
 	/**
@@ -36,12 +40,16 @@ public class Derivative {
 	 */
 	public ArrayList<Double> makeDerivatives(){
 		ArrayList<Double> listY = new ArrayList<Double>();
-		for(int i = 1; i<=this.a;i++){
-			double value=this.polymon.getPartialDerivative(i);
+		double value = 0;
+		value=this.polymon.getValue();
+		System.out.println("Wartoœæ funkcji w punkcie: "+this.x+" wynosi ="+value);
+		listY.add(value);
+		for(int i = 1; i<this.a;i++){
+			value=this.polymon.getPartialDerivative(i);
 			System.out.println("Wartoœæ pochodnej rzêdu:"+i+" dla funkcji w punkcie: "+this.x+" wynosi ="+value);
 			listY.add(value);
 		}
-		
+		System.out.println();
 		
 		
 		return listY;
