@@ -62,6 +62,7 @@ public class Interpolation {
             for (int j = 1; j < nodesNumber-i; j++) {
                 	System.out.print("  f[t"+i+"][t"+j+"]:"+quotients[i][j]);
                 }
+            System.out.println();
             }
         double[] diagonal = quotients[0]; // zwrocenie gornej przekatnej z której budujemy wielomian. Chodzi o wspó³czynniki
         String polynom = "P(x)= ";
