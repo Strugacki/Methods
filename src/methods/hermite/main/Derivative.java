@@ -30,6 +30,7 @@ public class Derivative {
 		//function is 5x^4 + 3x^2 + 2x + 1
 		//polymon = new DerivativeStructure(5.0, x3, 3.0, x2, 2.0, x1, 1.0,free);
 		
+		//function is x^8 + 1
 		x8 = polymonStruct.pow(8);
 		polymon = new DerivativeStructure(1.0, x8, 1.0,free);
 	}

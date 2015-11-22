@@ -34,7 +34,7 @@ public class Interpolation {
         for (int i = 0; i < hermit.getPointsNumber();i++) {
         	nodesNumber += hermit.getPoint(i).getSize(); // liczymy ilosc pochodnych
         }
-        System.out.println("Mamy tyle pochodnych: "+nodesNumber);
+        System.out.println();
         double[][] quotients = new double[nodesNumber][]; // tworzenie kolumn ilorazów jak w tej tabelce ze skryptu
         for (int i = 0; i < nodesNumber; i++){ // tworzenie wierszy
         	quotients[i] = new double[nodesNumber-i]; //tworzy siê tablicowa piramida
@@ -51,17 +51,21 @@ public class Interpolation {
             for (int i = 0; i < nodesNumber - j; i++) {
                 if (nodes[i+j] - nodes[i] == 0) { // jezeli w mianowniku zero
                 	quotients[i][j] = hermit.getYfromX(nodes[i+j],j) / factorial; // metoda z silni¹ i pochodnymi
-                	System.out.println("f["+i+"]["+j+"]:"+quotients[i][j]);
                 }
                 else { // zwykla metoda
                 	quotients[i][j] = (quotients[i+1][j-1] - quotients[i][j-1]) / (nodes[i+j] - nodes[i]); //inaczej normalna metoda
-                	System.out.println("f["+i+"]["+j+"]:"+quotients[i][j]);
                 }
             }
         }
+        int r=1;
+        for (int i = 0; i < nodesNumber; i++) { 
+            for (int j = 1; j < nodesNumber-i; j++) {
+                	System.out.print("  f[t"+i+"][t"+j+"]:"+quotients[i][j]);
+                }
+            }
         double[] diagonal = quotients[0]; // zwrocenie gornej przekatnej z której budujemy wielomian. Chodzi o wspó³czynniki
-        String polynom = " ";
-        for(int i=0;i<diagonal.length;i++){
+        String polynom = "P(x)= ";
+        for(int i=0;i<diagonal.length;i++){//testowe wypisanie wielomianu
         	polynom += diagonal[i]+"";
         	int l=i;
         	while(l>0){
