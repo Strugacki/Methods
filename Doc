@@ -11,13 +11,23 @@ Wielomian
 Klasy: Derivative, Hermite, Interpolation
 
 Derivative:
-
 Klasa zajmująca się wyliczaniem wartości pochodnych w punkcie.
 
-Hermite:
+public Derivative(Point point) - metoda implementująca stałą funkcję
 
+public ArrayList<Double> makeDerivatives() - uzupełnia tabelę wartościami wyliczanymi z podanych przez użytkownika danych
+
+Hermite:
 Klasa wczytująca dane i porządkująca je.
 
-Interpolation:
+public Hermite readPoints() - metoda zczytuje przedział oraz punkty
 
+public Hermite fillDirevativesValues() - przygotowuje dane wpisując wartości
+
+
+Interpolation:
 Klasa zajmująca się obliczaniem ilorazów różnicowych oraz interpolowaniem metodą Hermite'a.
+
+public double[] quotients(Hermite hermit, double[] nodes) - oblicza ilorazy różnicowe
+
+public Interpolation(Hermite hermit) - metoda wyliczająca oraz wypisująca wielomian
