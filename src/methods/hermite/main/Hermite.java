@@ -71,11 +71,18 @@ public class Hermite {
 		System.out.print("Podaj pocz¹tek przedzia³u: ");
 		if(in.hasNextInt()){
 			this.p=in.nextInt();
+		}else{
+			System.err.println("Podano nieprawid³ow¹ wartoœæ!!");
+			System.exit(0);
 		}
 		System.out.println();
 		System.out.print("Podaj koniec przedzia³u: ");
 		if(in.hasNextInt()){
 			this.k=in.nextInt();
+			if(this.getK()==this.getP() || this.getK()<this.getP()){
+				System.err.println("Podano nieprawid³ow¹ wartoœæ!!");
+				System.exit(0);
+			}
 		}
 		System.out.println();
 		System.out.println("Podaj kolejno wêz³y znajduj¹ce siê w przedziale oraz ich krotnoœci. W celu zakoñczenia wpisz: licz \n");
@@ -97,7 +104,7 @@ public class Hermite {
 					System.out.println("Podaj wartoœæ x wêz³a: ");
 			}else{
 				System.out.println("Liczba nie mieœci siê w przedziale, program koñczy dzia³anie!!");
-				break;
+				System.exit(0);
 			}
 		}
 		return this;
@@ -108,7 +115,7 @@ public class Hermite {
 	 * @return
 	 */
 	public Hermite fillDirevativesValues(){
-		HermiteInterpolator polymonial = new HermiteInterpolator();
+		HermiteInterpolator polynomial = new HermiteInterpolator();
 		for(int i=0;i<this.getPointsNumber();i++){
 			Derivative diver = new Derivative(this.getPoint(i));
 			this.getPoint(i).setY(diver.makeDerivatives());

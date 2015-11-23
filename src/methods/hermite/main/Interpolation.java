@@ -14,14 +14,14 @@ public class Interpolation {
 	}
 	
 	/**
-	 * @return the polymonial
+	 * @return the polynomial
 	 */
 	public String getPolymonial() {
 		return polymonial;
 	}
 
 	/**
-	 * @param polymonial the polymonial to set
+	 * @param polynomial the polynomial to set
 	 */
 	public void setPolymonial(String polymonial) {
 		this.polymonial = polymonial;
@@ -37,7 +37,7 @@ public class Interpolation {
         System.out.println();
         double[][] quotients = new double[nodesNumber][]; // tworzenie kolumn ilorazów jak w tej tabelce ze skryptu
         for (int i = 0; i < nodesNumber; i++){ // tworzenie wierszy
-        	quotients[i] = new double[nodesNumber-i]; //tworzy siê tablicowa piramida
+        	quotients[i] = new double[nodesNumber-i]; //tworzy siê tablicowa piramida 
         }
         for(int i = 0; i < hermit.getPointsNumber(); i++) {
             for (int j = 0; j < hermit.getPoint(i).getSize(); j++) {
@@ -73,17 +73,23 @@ public class Interpolation {
         		if(nodes[l]>0){
         			polynom += "(x - "+nodes[l]+")";
         		}
-        		if(nodes[l]<0){
+        		else if(nodes[l]<0){
         			polynom += "(x + "+nodes[l]*(-1)+")";
+        		}else{
+        			polynom += "(x)";
         		}
         		l--;
         	}
         	polynom+=" + ";
         }
         System.out.print(polynom);
-        for(int i=0;i<diagonal.length;i++){
+       /* for(int i=0;i<diagonal.length;i++){
         	System.out.print(diagonal[i]+" ");
-        }
+        }*/
+        System.out.println();
+        Polynomial w = Polynomial.NewtonFormToPolynomial(nodes, diagonal);
+        System.out.println();
+        System.out.println(w);
         return diagonal;
     }
 	     
@@ -94,7 +100,7 @@ public class Interpolation {
 	    	int n=0;
 	    	for (int i = 0; i < hermit.getPointsNumber(); i++) {
 	            for (int j = 0; j <hermit.getPoint(i).getSize(); j++) {
-	                n++;
+	                n++;//zliczanie wêz³ów
 	            }
 	        }
 	    	double[] nodes = new double[n]; //tutaj beda te nasze wezly t0 t1 itp
@@ -105,7 +111,7 @@ public class Interpolation {
 	            }
 	        }
 	        for(int l=0;l<nodes.length;l++){
-	        	System.out.println("Wartoœæ t["+l+"]: "+nodes[l]);
+	        	System.out.println("Wartoœæ t["+l+"]: "+nodes[l]);//wypisywanie wêz³ów
 	        }
 	        try {
 				double[] quotientss = quotients(hermit,nodes);
