@@ -69,12 +69,6 @@ public class Polynomial{
 		return toString(EPSILON);
 	}
 
-	/**
-	 * Zwraca łańcuch znaków reprezentujący wielomian, ale ignoruje
-	 * współczynniki których wartość bezwzględna jest mniejsza od epsilonu.
-	 * @param epsilon - dowolna (w domyśle - mała) wartość
-	 * @return Reprezentację wielomianu w postaci łańcucha znaków
-	 */
 	public String toString(double epsilon) {
 		StringBuilder b = new StringBuilder();
 		NumberFormat nf = NumberFormat.getInstance();

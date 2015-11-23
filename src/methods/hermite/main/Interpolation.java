@@ -80,6 +80,15 @@ public class Interpolation {
         		}
         		l--;
         	}
+        	/*if(i<diagonal.length){
+        		if(diagonal[i+1]<0){
+        			polynom+=" - ";
+        		}else if(diagonal[i+1]>0){
+        			polynom+=" + ";
+        		}else{
+        			i++;
+        		}
+        	}*/
         	polynom+=" + ";
         }
         System.out.print(polynom);
