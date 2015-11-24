@@ -68,34 +68,36 @@ public class Interpolation {
         String polynom = "P(x)= ";
         for(int i=0;i<diagonal.length;i++){//testowe wypisanie wielomianu
         	polynom += diagonal[i]+"";
-        	int l=i;
-        	while(l>0){
+        	int l=i-1;
+        	while(l>=0 && i>0){
         		if(nodes[l]>0){
-        			polynom += "(x - "+nodes[l]+")";
+        			polynom += "(x-"+nodes[l]+")";
+        			if(l>=1){
+        				polynom +="*";	
+        			}
         		}
         		else if(nodes[l]<0){
-        			polynom += "(x + "+nodes[l]*(-1)+")";
-        		}else{
+        			polynom += "(x+"+nodes[l]*(-1)+")";
+        			if(l>=1){
+        				polynom +="*";	
+        			}
+        		}else if(nodes[l]==0.0){
         			polynom += "(x)";
+        			if(l>=1){
+        				polynom +="*";	
+        			}
         		}
         		l--;
         	}
-        	/*if(i<diagonal.length){
-        		if(diagonal[i+1]<0){
-        			polynom+=" - ";
-        		}else if(diagonal[i+1]>0){
-        			polynom+=" + ";
-        		}else{
-        			i++;
-        		}
-        	}*/
-        	polynom+=" + ";
+        	if(i<diagonal.length-1 && diagonal[i+1]>0 ){
+        		polynom+="+";
+        	}else{
+        		polynom+=" ";
+        	}
         }
         System.out.print(polynom);
-       /* for(int i=0;i<diagonal.length;i++){
-        	System.out.print(diagonal[i]+" ");
-        }*/
-        System.out.println();
+
+        System.out.println();    
         Polynomial w = Polynomial.NewtonFormToPolynomial(nodes, diagonal);
         System.out.println();
         System.out.println(w);
