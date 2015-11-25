@@ -12,9 +12,10 @@ public class Derivative {
 	private DerivativeStructure x3;
 	private DerivativeStructure x2;
 	private DerivativeStructure x1;
+	private DerivativeStructure x6;
 	private DerivativeStructure free;
 	private DerivativeStructure polymon;
-			
+	private DerivativeStructure polymon2;
 	/**
 	 * Constructor with argument
 	 * @param point
@@ -26,13 +27,17 @@ public class Derivative {
 		x3 = polymonStruct.pow(4);
 		x2 = polymonStruct.pow(2);
 		x1 = polymonStruct.pow(1);
+		x6 = polymonStruct.pow(6);
 		free = polymonStruct.pow(0);
 		//function is 5x^4 + 3x^2 + 2x + 1
 		//polymon = new DerivativeStructure(5.0, x3, 3.0, x2, 2.0, x1, 1.0,free);
 		
+		//function 693x^6 - 945x^4+315x^2-15
+		polymon2 = new DerivativeStructure(693,x6,-945.0,x3,315.0,x2,-15.0,free);
+		
 		//function is x^8 + 1
 		x8 = polymonStruct.pow(8);
-		polymon = new DerivativeStructure(1.0, x8, 1.0,free);
+		//polymon = new DerivativeStructure(1.0, x8, 1.0,free);
 	}
 
 	/**
@@ -42,11 +47,11 @@ public class Derivative {
 	public ArrayList<Double> makeDerivatives(){
 		ArrayList<Double> listY = new ArrayList<Double>();
 		double value = 0;
-		value=this.polymon.getValue();
+		value=this.polymon2.getValue();
 		System.out.println("Wartoœæ funkcji w punkcie: "+this.x+" wynosi ="+value);
 		listY.add(value);
 		for(int i = 1; i<this.a;i++){
-			value=this.polymon.getPartialDerivative(i);
+			value=this.polymon2.getPartialDerivative(i);
 			System.out.println("Wartoœæ pochodnej rzêdu:"+i+" dla funkcji w punkcie: "+this.x+" wynosi ="+value);
 			listY.add(value);
 		}

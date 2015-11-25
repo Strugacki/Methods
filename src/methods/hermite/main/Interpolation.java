@@ -67,6 +67,7 @@ public class Interpolation {
         double[] diagonal = quotients[0]; // zwrocenie gornej przekatnej z której budujemy wielomian. Chodzi o wspó³czynniki
         String polynom = "P(x)= ";
         for(int i=0;i<diagonal.length;i++){//testowe wypisanie wielomianu
+        	if(diagonal[i]!=0){
         	polynom += diagonal[i]+"";
         	int l=i-1;
         	while(l>=0 && i>0){
@@ -89,18 +90,20 @@ public class Interpolation {
         		}
         		l--;
         	}
+        	}
         	if(i<diagonal.length-1 && diagonal[i+1]>0 ){
         		polynom+="+";
         	}else{
         		polynom+=" ";
         	}
         }
+    
         System.out.print(polynom);
 
         System.out.println();    
-        Polynomial w = Polynomial.NewtonFormToPolynomial(nodes, diagonal);
+        Polynomial w = Polynomial.NewtonFormToPolynomial(nodes, diagonal);//nie dzia³a dobrze
         System.out.println();
-        System.out.println(w);
+        //System.out.println(w);
         return diagonal;
     }
 	     
@@ -125,12 +128,11 @@ public class Interpolation {
 	        	System.out.println("Wartoœæ t["+l+"]: "+nodes[l]);//wypisywanie wêz³ów
 	        }
 	        try {
-				double[] quotientss = quotients(hermit,nodes);
+				double[] quotientss = quotients(hermit,nodes); // obliczenie ilorazow roznicowych
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} // obliczenie ilorazow roznicowych
-	        this.setPolymonial("P(X) = "+" ");
+			}
 	    }
 	
 	

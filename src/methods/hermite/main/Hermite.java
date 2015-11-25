@@ -89,7 +89,7 @@ public class Hermite {
 		System.out.println("Podaj wartoœæ x wêz³a: ");
 		while(in.hasNextDouble()){
 					double x = in.nextDouble();
-					if(x>=this.getP() && x<= this.getK()){
+					if(x>=Double.parseDouble(Integer.toString(this.getP())) && x<=Double.parseDouble(Integer.toString(this.getK()))){
 					Point point = new Point();
 					point.setX(x);
 					System.out.println();
